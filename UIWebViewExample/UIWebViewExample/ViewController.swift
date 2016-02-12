@@ -26,14 +26,35 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToSite() {
-        let myURL = NSURL(string: stringURL.text!);
+        let myURL = NSURL(string: stringURL.text!)
         if(myURL == nil)
         {
             print("no url")
         } else {
             let myURLRequest:NSURLRequest = NSURLRequest(URL: myURL!);
-            webview.loadRequest(myURLRequest);
+            webview.loadRequest(myURLRequest)
         }
+        
+    }
+    
+    @IBAction func goToHTML() {
+        let myHTML:String = stringURL.text!
+        if(myHTML == "")
+        {
+            print("no html")
+        } else {
+            webview.loadHTMLString(myHTML, baseURL: nil)
+        }
+        
+    }
+    
+    @IBAction func reloadSite() {
+        webview.reload();
+        
+    }
+    
+    @IBAction func stopLoading() {
+        webview.stopLoading()
         
     }
 
